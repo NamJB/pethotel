@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.petHotel.dto.AdminDto;
+import com.example.petHotel.dto.RoomDto;
 import com.example.petHotel.service.AdminService;
 
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -62,10 +65,73 @@ public class AdminController {
 	
 	
 	@GetMapping("/admin/mypage")
-	public String mypageForm()
+	public String mypageForm(HttpServletRequest request,Model model)
 	{
-		return "/admin/mypage";
+		
+		
+		return adminService.reserve(request,model);
 	}
+	
+	@RequestMapping("/admin/reserveContent")
+	public String reserveContent(HttpServletRequest request,Model model) {
+		
+		return adminService.reserveContent(request,model);
+	}
+	
+	@RequestMapping("admin/reserveAdelete")
+	public String reserveAdelete(HttpServletRequest request) {
+		
+		return adminService.reserveAdelete(request);
+		
+	}
+	
+	@RequestMapping("admin/roomList")
+	public String roomList(Model model) {
+		
+		return adminService.roomList(model);
+	}
+	
+	@RequestMapping("admin/roomContent")
+	public String roomContent(HttpServletRequest request,Model model) {
+		
+		return adminService.roomContent(request,model);
+	}
+	
+	@RequestMapping("admin/roomDelete")
+	public String roomDelete(HttpServletRequest request) {
+		
+		return adminService.roomDelete(request);
+	}
+	
+	@RequestMapping("admin/roomCreate")
+	public String roomCreate() {
+		
+		return adminService.roomCreate();
+	}
+	
+	@RequestMapping("admin/roomCreateOk")
+	public String roomCreateOk(RoomDto rdto) {
+		
+		
+		return adminService.roomCreateOk(rdto);
+	}
+	
+	@RequestMapping("admin/roomUpdate")
+	public String roomUpdate(HttpServletRequest request,Model model) {
+		
+		return adminService.roomUpdate(request,model);
+	}
+	
+	@RequestMapping("admin/roomUpdateOk")
+	public String roomUpdateOk(RoomDto rdto,HttpServletRequest request) {
+		
+		return adminService.roomUpdateOk(rdto,request);
+	}
+	
+	
+
+	
+	
 	
 	
 	

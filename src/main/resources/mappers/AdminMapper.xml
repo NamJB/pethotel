@@ -19,4 +19,50 @@
        where id = #{id}
 </delete>
 
+<select id = "getRoom" parameterType = "com.example.petHotel.dto.RoomDto">
+
+   select * from rooms
+</select>
+
+<select id = "getReserve" parameterType = "com.example.petHotel.dto.ReserveDto">
+
+select * from reserve
+</select>
+
+<select id = "getContent" parameterType = "com.example.petHotel.dto.ReserveDto">
+
+select * from reserve where reserveNum = #{reserveNum}
+
+</select>
+
+<delete id = "reserveAdelete" parameterType = "string">
+
+ delete from reserve where reserveNum = #{reserveNum}
+</delete>
+
+<select id = "roomContent" parameterType = "com.example.petHotel.dto.RoomDto">
+
+  select * from rooms where roomid = #{roomid}
+</select>
+
+<delete id = "roomDelete">
+ delete from rooms where roomid =#{roomid}
+</delete>
+
+<insert id = "roomCreate" parameterType = "com.example.petHotel.dto.RoomDto">
+
+insert into rooms(title, price, content, min, max, rimgPaths)
+    values(#{title}, #{price}, #{content}, #{min}, #{max}, #{rimgPaths})
+ 
+
+</insert>
+
+<update id = "roomUpdateOk" parameterType = "com.example.petHotel.dto.RoomDto">
+
+ update rooms set title = #{title} ,price = #{price}, rimgPaths = #{rimgPaths},content=#{content},min =#{min},max=#{max}
+ 
+ where roomid = #{roomid}
+
+</update>
+
 </mapper>

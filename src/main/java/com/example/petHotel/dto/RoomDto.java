@@ -1,16 +1,34 @@
 package com.example.petHotel.dto;
 
-
-
+import org.springframework.web.multipart.MultipartFile;
 
 public class RoomDto {
 
 	
-	private String title,price,rimg,content;
+	private String title,price,content;
 	private int roomid,min,max;
+	       
+	private MultipartFile[] rimg;
+	public MultipartFile[] getRimg() {
+		return rimg;
+	}
+
+	public void setRimg(MultipartFile[] rimg) {
+		this.rimg = rimg;
+	}
+
+	private String rimgPaths; 
 	
 	
-	
+
+	public String getRimgPaths() {
+		return rimgPaths;
+	}
+
+	public void setRimgPaths(String rimgPaths) {
+		this.rimgPaths = rimgPaths;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -27,13 +45,7 @@ public class RoomDto {
 		this.price = price;
 	}
 
-	public String getRimg() {
-		return rimg;
-	}
-
-	public void setRimg(String rimg) {
-		this.rimg = rimg;
-	}
+	
 
 	public String getContent() {
 		return content;

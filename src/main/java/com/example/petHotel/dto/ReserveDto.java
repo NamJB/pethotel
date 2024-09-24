@@ -10,7 +10,7 @@ public class ReserveDto {
 	
 	public LocalDate startDate,endDate,reserveday;
 	public String chongprice,username,phone,content;
-	public String roomid,reserveNum;
+	public String roomid,reserveNum,title;
 	
 	public int petsu;
 
@@ -21,6 +21,14 @@ public class ReserveDto {
 
 	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public LocalDate getEndDate() {

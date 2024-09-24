@@ -307,7 +307,7 @@
 	                    </tr>
 	                    <c:forEach items="${rdto}" var="rdto">
 	                        <tr>
-	                            <td><img src="../static/reserve/${rdto.rimg}" alt="방 사진"></td>
+	                            <td><img src="/rooms/${rdto.rimgPaths}" alt="방 사진"></td>
 	                            <td>${rdto.title}</td>
 	                            <td>${rdto.price}</td>
 	                            <td>
